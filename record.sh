@@ -20,6 +20,7 @@ while getopts "o:i:t:yd:" opt; do
     y)  force_start=1
       ;;
     d)  delay=$OPTARG
+      ;;
     \?) echo "Invalid option: -$OPTARG" >&2
         exit 1
       ;;
