@@ -20,16 +20,18 @@ while getopts "o:i:t:yd:" opt; do
     y)  force_start=1
       ;;
     d)  delay=$OPTARG
+    \?) echo "Invalid option: -$OPTARG" >&2
+        exit 1
+      ;;
   esac
 done
 
 echo "This script records screenshots at regular intervals to a folder"
-
 echo "Montage recorder configuration:"
-echo " - Output folder (o): $output_folder"
-echo " - Start index   (i): $start_index"
-echo " - Time interval (t): $time_interval"
-echo " - Delay         (d): $delay"
+echo " -o Output folder: $output_folder"
+echo " -i   Start index: $start_index"
+echo " -t Time interval: $time_interval"
+echo " -d         Delay: $delay"
 
 shift $((OPTIND-1))
 
