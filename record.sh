@@ -4,7 +4,7 @@
 OPTIND=1         # Reset in case getopts has been used previously in the shell.
 
 # Initialize our own variables:
-output_folder="./"
+output_folder="./montage"
 start_index=0
 time_interval=5
 delay=0
@@ -16,7 +16,7 @@ function stitch_video {
     echo "Try running \$brew install ffmpeg" >&2
     exit 1
   fi
-  ffmpeg -r 30 -start_number $start_index -i %d.png -vcodec libx264 -pix_fmt yuv420p montage.mp4
+  ffmpeg -r 30 -start_number $start_index -i $output_folder/%d.png -vcodec libx264 -pix_fmt yuv420p $output_folder/montage.mp4
   exit 0
 }
 
