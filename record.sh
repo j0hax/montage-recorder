@@ -30,9 +30,9 @@ done
 echo "This script records screenshots at regular intervals to a folder"
 echo "Montage recorder configuration:"
 echo " -o Output folder: $output_folder"
-echo " -i   Start index: $start_index"
+echo " -i Start index:   $start_index"
 echo " -t Time interval: $time_interval"
-echo " -d         Delay: $delay"
+echo " -d Delay:         $delay"
 
 shift $((OPTIND-1))
 
