@@ -8,8 +8,19 @@ output_folder="./"
 start_index=0
 time_interval=5
 delay=0
+framerate=30
 
-while getopts "o:i:t:yd:h" opt; do
+function stitch_video {
+  if ! [ -x "$(command -v ffmpeg)" ]; then
+    echo "Error: ffmpeg is not installed." >&2
+    echo "Try running \$brew install ffmpeg" >&2
+    exit 1
+  fi
+  ffmpeg -r 30 -start_number $start_index -i %d.png -vcodec libx264 -pix_fmt yuv420p montage.mp4
+  exit 0
+}
+
+while getopts "o:i:t:yd:hs" opt; do
   case "$opt" in
     o)  output_folder=$OPTARG
       ;;
